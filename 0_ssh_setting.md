@@ -114,8 +114,15 @@ SSH接続を行うために、以下の環境が整っていることを確認�
     
 2. 作成した公開鍵をリモートサーバーにコピー。
     
+    Linuxの場合
     ```
     ssh-copy-id -i ~/.ssh/id_rsa.pub myusername@example.com
+    ```
+    Windowsの場合
+    ```
+    cat ~/.ssh/id_rsa.pub | ssh ${user}@${host} \
+    "mkdir -p ~/.ssh && chmod 700 ~/.ssh && \
+    cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
     ```
     
 3. `~/.ssh/config` に `IdentityFile` を明示的に指定。
