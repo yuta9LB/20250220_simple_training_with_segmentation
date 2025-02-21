@@ -70,9 +70,9 @@ SSH接続を行うために、以下の環境が整っていることを確認�
     
     ```
     Host node<自分のノード番号>
-        HostName <自分のノード番号>
+        HostName node<自分のノード番号>
         User <ユーザ名>
-        ProxyCommand ssh cluster -W %h:%p
+        ProxyJump cluster
      
     Host cluster
         HostName 10.2.17.74
@@ -83,7 +83,7 @@ SSH接続を行うために、以下の環境が整っていることを確認�
 #### 4.2 SSH接続の実行
 
 1. コマンドパレットを開き、「Remote-SSH: Connect to Host」を選択します。
-2. 先ほど設定した「myserver」を選択します。
+2. 先ほど設定した「node<自分のノード番号>」を選択します。
 3. 初回接続時は、サーバーのフィンガープリントを受け入れるか尋ねられるので「yes」と入力します。
 4. パスワードの入力を求められたら入力します。
 5. 認証が完了すると、リモートサーバーの環境に接続されます。
